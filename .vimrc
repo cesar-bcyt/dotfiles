@@ -16,8 +16,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'xavierd/clang_complete'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 call vundle#end()
 filetype plugin indent on
 nnoremap <C-c> <C-a>
@@ -99,7 +102,7 @@ iabbrev xs1 col-xs-1
 
 autocmd FileType javascript imap cl( console.log();<Esc>hi
 
-autocmd FileType javascript imap rcomp import React, { Component } from "react<Esc>A;<Esc>o<CR>class extends Component {<Cr>  render() {<CR><space><space>return(<CR>);<CR>}<CR>}<Esc>kkk0eeea<Space>
+autocmd FileType javascript imap rcomp <F5>import React from 'react';<CR>import { View, Text } from 'react-native';<CR><CR>export default function () {<CR><Space><Space>return (<CR><Space><Space>);<CR>}<Esc>?()<CR><F1><F1><C-l>i<F5>
 autocmd FileType html set tabstop=2
 " autocmd FileType html nnoremap <Tab> <C-y>,
 " let g:user_emmet_leader_key=''
@@ -109,23 +112,8 @@ autocmd FileType html setlocal commentstring=<!--%s-->
 autocmd FileType glsl setlocal commentstring=//%s
 autocmd FileType html inoremap {% {%<Space><Space>%}<Esc>hhi
 
-autocmd FileType python vnoremap \te >'>o<Esc>'<Otry:<Esc><<}iexcept Exception, e:<CR>
 autocmd Filetype python nnoremap <C-q> :set shiftwidth=2<CR>
-autocmd Filetype python inoremap !a self.assert
-autocmd Filetype python inoremap !A self.assert
-autocmd Filetype python inoremap !F self.assertFalse(
-autocmd Filetype python inoremap !T self.assertTrue(
-autocmd Filetype python inoremap !E self.assertEqual(
-" autocmd Filetype python inoremap !m if __name__ == "__main__":<Esc>ounittest.main()
-autocmd FileType python inoremap \i def __init__(self,
-autocmd FileType python inoremap !c class (object):<CR>def __init__(self, ):<Esc>k0f(i
-autocmd FileType python inoremap !m class (models.Model):<CR>def __str__(self):<Esc>k0f(i
-autocmd FileType python inoremap !S class (serializers.ModelSerializer):<Esc>0f(i
-autocmd FileType python inoremap !s class (viewsets.ModelViewSet):<Esc>0f(i
-autocmd FileType python inoremap !t class (unittest.TestCase):<CR>def setUp(self):<Esc>oself.browser = webdriver.Firefox()<Esc>o<CR><CR><Backspace><Backspace><Space><Space>def tearDown(self):<Esc>oself.browser.quit()<Esc>5k0f(i
-autocmd FileType python nnoremap <C-j> i<Esc>o<CR><Backspace><Space><Space>def<Space>
-autocmd FileType python inoremap <C-n> <Esc><S-v>:s/ /_/g<CR>0i<Space><Space>def<Space>test_<Esc>:nohlsearch<CR>A(self):<Esc>o
-autocmd FileType python nnoremap <C-n> <Esc><S-v>:s/ /_/g<CR>1i<Space><Space>def<Space>test_<Esc>:nohlsearch<CR>A(self):<Esc>o
+autocmd Filetype python inoremap _tf import tensorflow as tf
 
 autocmd FileType java set shiftwidth=2
 autocmd FileType java set tabstop=2
@@ -317,3 +305,4 @@ imap THETA θ
 " Α α, Β β, Γ γ, Δ δ, Ε ε, Ζ ζ, Η η, Θ θ, Ι ι, Κ κ, Λ λ, Μ μ, Ν ν, Ξ ξ, Ο ο, Π π, Ρ ρ, Σ σ/ς, Τ τ, Υ υ, Φ φ, Χ χ, Ψ ψ, and Ω ω.
 let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-8.so.1'
 nnoremap <leader>x *``cgn
+inoremap {<CR> {<CR><CR>}<Esc>kko<Del>

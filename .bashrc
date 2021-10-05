@@ -1,3 +1,5 @@
+TERM=xterm
+
 COLOR_RED="\033[0;31m"
 COLOR_YELLOW="\033[0;33m"
 COLOR_GREEN="\033[0;32m"
@@ -83,6 +85,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
 fi
 
+alias pp="playerctl play-pause"
+alias nn="playerctl next"
+alias prev="playerctl previous"
 alias sega="retroarch --config ~/.config/retroarch/retroarch.cfg --libretro ~/Genesis-Plus-GX/genesis_plus_gx_libretro.so"
 alias co='git checkout'
 alias ='ls'
@@ -99,7 +104,7 @@ alias ....='cd ../../..'
 alias mpl='mplayer'
 alias m='mupdf'
 alias p='python'
-alias p3='python3'
+alias p3='python3.9'
 alias p2='python2'
 alias g='git'
 alias gco='git checkout'
@@ -112,6 +117,7 @@ alias t='python3 manage.py test'
 alias trans='p ~/Code/api/demo.py'
 alias pi='ssh pi@192.168.1.100'
 alias run='python3 manage.py runserver 0:8000'
+alias d='docker'
 shopt -s extglob
 
 # if [ -f ~/.bash_aliases ]; then
@@ -138,8 +144,8 @@ PS1+="\[$COLOR_BLUE\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
 
 export PS1
 export PATH=$PATH:/home/cbravo/bin
-# alias dual='xrandr --output HDMI-1 --left-of eDP-1 --mode 1360x768'
-# alias mono='xrandr --output HDMI-1 --same-as eDP-1 --mode 1920x1080'
+alias dual='xrandr --output HDMI-0 --left-of eDP-1-1 --mode 1920x1080 --rate 144.00'
+alias mono='xrandr --output HDMI-0 --same-as eDP-1-1 --mode 1920x1080'
 alias mm='python3 manage.py makemigrations; python3 manage.py migrate'
 alias tp='python3 manage.py shell_plus'
 alias sl='ls'
@@ -150,3 +156,26 @@ alias venv='python3 -m virtualenv .'
 alias killc='killall -9 /usr/lib/chromium-browser/chromium-browser'
 alias dc='cd'
 alias send="rsync -ravzP"
+export ANDROID_SDK=$HOME/Android/sdk
+export ANDROID_HOME=~/Android/Sdk/
+export PATH=/home/cbravo/Android/Sdk/platform-tools/:/home/cbravo/Android/Sdk/emulator:/home/cbravo/Android/Sdk/tools:$PATH
+export PATH=$PATH:~/Android/Sdk/tools/bin/
+export ANDROID_AVD_HOME=~/.android/avd/
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export PATH="$HOME/bin:$PATH"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="$HOME/bin:$PATH"
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/22.1.7171670
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+complete -C '/usr/local/bin/aws_completer' aws
