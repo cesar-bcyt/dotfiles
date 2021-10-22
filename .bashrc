@@ -144,8 +144,8 @@ PS1+="\[$COLOR_BLUE\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
 
 export PS1
 export PATH=$PATH:/home/cbravo/bin
-alias dual='xrandr --output HDMI-0 --left-of eDP-1-1 --mode 1920x1080 --rate 144.00'
-alias mono='xrandr --output HDMI-0 --same-as eDP-1-1 --mode 1920x1080'
+alias dual='xrandr --output HDMI-A-0 --above eDP --mode 1920x1080 --rate 144.00'
+alias mono='xrandr --output HDMI-A-0 --same-as eDP --mode 1920x1080'
 alias mm='python3 manage.py makemigrations; python3 manage.py migrate'
 alias tp='python3 manage.py shell_plus'
 alias sl='ls'
@@ -179,3 +179,4 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 complete -C '/usr/local/bin/aws_completer' aws
+export PATH="$PATH:/opt/mssql-tools/bin"

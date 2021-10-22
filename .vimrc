@@ -183,7 +183,6 @@ augroup omni_complete
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType cpp setlocal omnifunc=cppcomplete#Complete
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
 set exrc
@@ -306,3 +305,12 @@ imap THETA θ
 let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-8.so.1'
 nnoremap <leader>x *``cgn
 inoremap {<CR> {<CR><CR>}<Esc>kko<Del>
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+let g:ycm_filetype_whitelist = {
+                        \ "c":1,
+                        \ "py":1
+                        \ }
